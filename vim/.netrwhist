@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =0
+let g:netrw_dirhist_0='/Users/jyurek/Development/clients/alden-scientific/alden-collect/bin'
+let g:netrw_dirhist_9='/Users/jyurek/Development/clients/alden-scientific/alden-collect/app/models'
+let g:netrw_dirhist_8='/Users/jyurek/Development/clients/alden-scientific/alden-collect/spec/services'
+let g:netrw_dirhist_7='/Users/jyurek/Development/clients/alden-scientific/alden-collect/spec'
+let g:netrw_dirhist_6='/Users/jyurek/Development/clients/alden-scientific/alden-collect/spec/system'
+let g:netrw_dirhist_5='/Users/jyurek/Development/clients/alden-scientific/alden-collect/app/views/admin/members/samples'
+let g:netrw_dirhist_4='/Users/jyurek/Development/clients/alden-scientific/alden-collect/app/views/admin/members'
+let g:netrw_dirhist_3='/Users/jyurek/Development/clients/alden-scientific/alden-collect/app/models'
+let g:netrw_dirhist_2='/Users/jyurek/Development/clients/alden-scientific/aurora-website/db/seeds'
+let g:netrw_dirhist_1='/Users/jyurek/Development/clients/alden-scientific/aurora-website/db'

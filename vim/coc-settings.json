@@ -1,0 +1,23 @@
+{
+  "typescript": {
+    "updateImportsOnFileMove": {
+      "enabled": "project-relative"
+    }
+  },
+  "languageserver": {
+    "crystal": {
+      "command": "crystalline",
+      "args": ["--stdio"],
+      "filetypes": ["crystal"],
+      "rootPatterns": ["shard.yml"]
+    },
+    "kotlin": {
+      "command": "/opt/homebrew/bin/kotlin-language-server",
+      "filetypes": ["kotlin"]
+    },
+    "ruby": {
+      "command": "/Users/jyurek/.gem/ruby/3.3.5/bin/ruby-lsp",
+      "filetypes": ["ruby", "eruby"]
+    }
+  }
+}

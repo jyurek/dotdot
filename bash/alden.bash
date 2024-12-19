@@ -1,0 +1,1 @@
+export AWS_DEFAULT_PROFILE=aldenscientific-research-cognito
