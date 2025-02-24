@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@eslint/create-config": "^0.2.0",
+    "eas-cli": "^3.4.1",
+    "storyblok": "^3.17.1"
+  }
+}
