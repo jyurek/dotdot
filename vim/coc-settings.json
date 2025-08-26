@@ -11,6 +11,10 @@
       "filetypes": ["crystal"],
       "rootPatterns": ["shard.yml"]
     },
+    "elixirLS": {
+      "command": "/opt/bin/elixir-ls/language_server.sh",
+      "filetypes": ["elixir", "eelixir", "heex"]
+    },
     "kotlin": {
       "command": "/opt/homebrew/bin/kotlin-language-server",
       "filetypes": ["kotlin"]

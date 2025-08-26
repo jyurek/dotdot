@@ -141,6 +141,7 @@ command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.org
 
 " Use <Leader>y to show documentation in preview window
 nnoremap <silent> <Leader>y :call <SID>show_documentation()<CR>
+nnoremap <silent> <Leader>d :call <SID>show_documentation()<CR>
 nnoremap <silent> <Leader>yc :call CocAction('getHover')
 
 function! s:show_documentation()

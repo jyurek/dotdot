@@ -30,6 +30,10 @@ function latest_command {
   history | tail -n 1 | sed 's/[0-9 ]*\(.*\)/\1/'
 }
 
+function color_text {
+  echo "\033[38;2;$2m\]$1\[\e[0m\]"
+}
+
 function prompt_command_function
 {
   last_result=$?
@@ -48,12 +52,17 @@ function prompt_command_function
 
   current_node=
   type nvm > /dev/null 2>&1 && current_node=$(nvm current)
+  color_node=$(color_text $current_node "231;231;64")
 
   current_ruby=
   type chruby > /dev/null 2>&1 && current_ruby=$(chruby | ag \\\* | cut -d" " -f 3)
   # current_ruby=$(cat ~/.tool-versions | ag ruby | cut -d" " -f 2)
+  color_ruby=$(color_text $current_ruby "231;64;64")
 
-  PS1="$last_result \[\e[32m\]${timer_show}s\[\e[0m\] \[\e[${dot_dirty}\]${dot_branch}\[\e[0m\] \[\e[33m\]$current_ruby\[\e[0m\] \[\e[33m\]$current_node\[\e[0m\] \[\e[32m\]\w\[\e[0m\]$git_branch \$ "
+  current_elixir=$(asdf list elixir | ag \\* | cut -d* -f2)
+  color_elixir=$(color_text $current_elixir  "255;192;128")
+
+  PS1="$last_result \[\e[32m\]${timer_show}s\[\e[0m\] $color_ruby $color_elixir $color_node \[\e[32m\]\w\[\e[0m\]$git_branch \$ "
 }
 
 export PROMPT_COMMAND=prompt_command_function

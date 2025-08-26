@@ -8,9 +8,10 @@ Plug 'BlakeWilliams/vim-tbro'
 Plug 'ElmCast/elm-vim'
 Plug 'PeterRincker/vim-argumentative'
 Plug 'ap/vim-css-color'
+Plug 'avdgaag/vim-phoenix'
 Plug 'christoomey/vim-conflicted'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'elixir-lang/vim-elixir'
+Plug 'elixir-editors/vim-elixir'
 Plug 'gabrielelana/vim-markdown'
 Plug 'int3/vim-extradite'
 Plug 'janko-m/vim-test'
@@ -23,7 +24,9 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'prettier/vim-prettier'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-dadbod'
 Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-dotenv'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-projectionist'
@@ -179,13 +182,13 @@ nmap <Leader>; lF:xepldf>
 nmap <Leader>< :up<CR>:cpf<CR>
 nmap <Leader>= mmgg=G`mzz
 nmap <Leader>> :up<CR>:cnf<CR>
-nmap <Leader>I o\|> (fn (l) -> Logger.info(": " <> inspect(l)); l end).()<Esc>F:i
-nmap <Leader>d Orequire 'pry'; binding.pry<Esc>:w<CR>
+nmap <Leader>de o\|> (fn (l) -> Logger.info(": " <> inspect(l)); l end).()<Esc>F:i
+nmap <Leader>dr Orequire 'pry'; binding.pry<Esc>:w<CR>
+nmap <Leader>dj o\|> IO.inspect(label: "")<Esc>F"i
 nmap <Leader>diff mdjV/=====<CR>k"fynjV/>>>>><CR>k"sy:vne<CR>"fP:diffthis<CR>:vne<CR>"sP:diffthis<CR>
 nmap <Leader>ee :e <C-R>=expand("%:p:h") . '/'<CR>
 nmap <Leader>es :split <C-R>=expand("%:p:h") . '/'<CR>
 nmap <Leader>ev :vnew <C-R>=expand("%:p:h") . '/'<CR>
-nmap <Leader>i o\|> IO.inspect(label: "")<Esc>F"i
 nmap <Leader>o :w \| !open %<CR>
 nmap <Leader>q gwip
 nmap <Leader>rc :source $MYVIMRC<CR>
@@ -280,4 +283,4 @@ inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<Up>"
 
 nmap <Leader>x :s/\d\+/\=printf("%02x", submatch(0))/g<CR>
 
-command D :bp\|bd #
+command BD :bp\|bd #
