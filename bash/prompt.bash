@@ -11,7 +11,7 @@ trap 'timer_start' DEBUG
 
 function parse_git_dirty {
   # [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit, working tree clean" ]] && echo '✏ '
-  $(git diff-index --quiet HEAD 2>/dev/null) && echo -n '' || echo -n '✏ '
+  $(git diff-index --quiet HEAD 2>/dev/null) && echo -n '' || echo -n '✏'
 }
 
 function parse_git_branch {
@@ -23,12 +23,16 @@ function latest_command {
 }
 
 function color_text {
-  echo "\033[38;2;$2m\]$1\[\e[0m\]"
+  echo "\033[38;2;$2m\]$1\033[39m\033[49m"
 }
 
 function prompt_command_function
 {
-  last_result=$(color_text $? "64;64;64")
+  if [[ $? == 0 ]]; then
+    last_result=$(color_text $? "128;128;128")
+  else
+    last_result=$(color_text $? "192;192;192")
+  fi
   timer_stop
   color_runtime=$(color_text ${timer_show}s "192;192;64")
 
@@ -38,10 +42,12 @@ function prompt_command_function
   color_cwd=$(color_text $cwd "64;192;64")
 
   git_dirty=$(parse_git_dirty)
-  git_dirty=${git_dirty:+" \[\e[31m\]$git_dirty\[\e[0m\]"}
+  color_git_dirty=${git_dirty:+" $git_dirty"}
+  git_dirty=$(color_text "$color_git_dirty" "192;80;80")
 
   git_branch=$(parse_git_branch)
-  git_branch=${git_branch:+"(\[\e[35m\]${git_branch}\[\e[0m\]${git_dirty})"}
+  color_git_branch=$(color_text "$git_branch" "160;80;192")
+  git_branch=${git_branch:+" (${color_git_branch}${git_dirty})"}
 
   current_node=type nvm > /dev/null 2>&1 && current_node=$(nvm current)
   color_node=$(color_text $current_node "231;231;64")
@@ -53,7 +59,7 @@ function prompt_command_function
   current_elixir=$(asdf list elixir | ag \\* | cut -d* -f2)
   color_elixir=$(color_text $current_elixir  "255;192;128")
 
-  PS1="$last_result $color_runtime $color_ruby $color_elixir $color_node $color_cwd $git_branch \$ "
+  PS1="$last_result $color_runtime $color_ruby $color_elixir $color_node $color_cwd$git_branch \$ "
 }
 
 export PROMPT_COMMAND=prompt_command_function
