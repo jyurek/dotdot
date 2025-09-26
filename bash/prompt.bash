@@ -23,41 +23,41 @@ function latest_command {
 }
 
 function color_text {
-  echo "\033[38;2;$2m\]$1\033[39m\033[49m"
+  echo "\[\e[$2m\]${1}\[\e[0m\]"
 }
 
 function prompt_command_function
 {
   if [[ $? == 0 ]]; then
-    last_result=$(color_text $? "128;128;128")
+    last_result=$(color_text $? "90")
   else
-    last_result=$(color_text $? "192;192;192")
+    last_result=$(color_text $? "37")
   fi
   timer_stop
-  color_runtime=$(color_text ${timer_show}s "192;192;64")
+  color_runtime=$(color_text ${timer_show}s "33")
 
   cwd=$(pwd)
   cwd=$(echo $cwd | sed 's/\/Users\/jyurek\/Development\/clients/\+/')
   cwd=$(echo $cwd | sed 's/~\/Development\/clients/\+/')
-  color_cwd=$(color_text $cwd "64;192;64")
+  color_cwd=$(color_text $cwd "32")
 
   git_dirty=$(parse_git_dirty)
   color_git_dirty=${git_dirty:+" $git_dirty"}
-  git_dirty=$(color_text "$color_git_dirty" "192;80;80")
+  git_dirty=$(color_text "$color_git_dirty" "31")
 
   git_branch=$(parse_git_branch)
-  color_git_branch=$(color_text "$git_branch" "160;80;192")
+  color_git_branch=$(color_text "$git_branch" "31")
   git_branch=${git_branch:+" (${color_git_branch}${git_dirty})"}
 
   current_node=type nvm > /dev/null 2>&1 && current_node=$(nvm current)
-  color_node=$(color_text $current_node "231;231;64")
+  color_node=$(color_text $current_node "31")
+
+  current_elixir=$(asdf list elixir | ag \\* | cut -d* -f2)
+  color_elixir=$(color_text $current_elixir  "35")
 
   current_ruby=type chruby > /dev/null 2>&1 && current_ruby=$(chruby | ag \\\* | cut -d" " -f 3)
   # current_ruby=$(cat ~/.tool-versions | ag ruby | cut -d" " -f 2)
-  color_ruby=$(color_text $current_ruby "231;64;64")
-
-  current_elixir=$(asdf list elixir | ag \\* | cut -d* -f2)
-  color_elixir=$(color_text $current_elixir  "255;192;128")
+  color_ruby=$(color_text $current_ruby "34")
 
   PS1="$last_result $color_runtime $color_ruby $color_elixir $color_node $color_cwd$git_branch \$ "
 }

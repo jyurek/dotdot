@@ -284,3 +284,5 @@ inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<Up>"
 nmap <Leader>x :s/\d\+/\=printf("%02x", submatch(0))/g<CR>
 
 command BD :bp\|bd #
+
+map <Leader>fg "qyiw:exe 'grep "def '.@q.'"'<CR>
