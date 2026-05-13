@@ -1,0 +1,28 @@
+{
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  },
+  "permissions": {
+    "defaultMode": "auto"
+  },
+  "enabledPlugins": {
+    "ideate@gnar": true,
+    "implement@gnar": true,
+    "ignite@gnar": true,
+    "superpowers@claude-plugins-official": true,
+    "feature-dev@claude-plugins-official": true,
+    "pr-review-toolkit@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "gnar": {
+      "source": {
+        "source": "github",
+        "repo": "thegnarco/agent-skills"
+      }
+    }
+  },
+  "effortLevel": "xhigh",
+  "editorMode": "vim",
+  "teammateMode": "auto",
+  "skipAutoPermissionPrompt": true
+}

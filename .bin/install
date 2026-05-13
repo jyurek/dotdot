@@ -1,9 +1,0 @@
-#!/bin/sh
-
-installdir=${1:-'~'}
-
-bindir=`dirname "$0"`
-dotdir=`dirname "$bindir"`
-for file in `ls "$dotdir"`; do
-  echo "ln -sf '$file' '$installdir/.$file'"
-done

@@ -20,7 +20,7 @@
       "filetypes": ["kotlin"]
     },
     "ruby": {
-      "command": "/Users/jyurek/.gem/ruby/3.3.5/bin/ruby-lsp",
+      "command": "ruby-lsp",
       "filetypes": ["ruby", "eruby"]
     }
   }

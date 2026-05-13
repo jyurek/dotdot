@@ -1,1 +1,0 @@
-/Users/jyurek/.vimrc

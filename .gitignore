@@ -1,3 +1,11 @@
+viminfo
 vim/plugged/*
 **/node_modules
 !**/*.keep
+
+claude/*
+!claude/settings.json
+!claude/plugins/installed_plugins.json
+!claude/plugins/known_marketplaces.json
+!claude.json
+
