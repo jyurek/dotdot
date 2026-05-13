@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =0
+let g:netrw_dirhistcnt =1
+let g:netrw_dirhist_1='/Users/jyurek/.dot/.git'
 let g:netrw_dirhist_0='/Users/jyurek/.dot'
 let g:netrw_dirhist_9='/Users/jyurek/.dot/.bin'
 let g:netrw_dirhist_8='/Users/jyurek/.dot'
@@ -9,4 +10,3 @@ let g:netrw_dirhist_5='/Users/jyurek/Development/clients'
 let g:netrw_dirhist_4='/Users/jyurek/.dot/bash'
 let g:netrw_dirhist_3='/Users/jyurek/.vim/plugin'
 let g:netrw_dirhist_2='/Users/jyurek/.vim'
-let g:netrw_dirhist_1='/Users/jyurek/.bash'

@@ -1,0 +1,18 @@
+{
+  "claude-plugins-official": {
+    "source": {
+      "source": "github",
+      "repo": "anthropics/claude-plugins-official"
+    },
+    "installLocation": "/Users/jyurek/.claude/plugins/marketplaces/claude-plugins-official",
+    "lastUpdated": "2026-05-13T11:24:01.160Z"
+  },
+  "gnar": {
+    "source": {
+      "source": "github",
+      "repo": "thegnarco/agent-skills"
+    },
+    "installLocation": "/Users/jyurek/.claude/plugins/marketplaces/gnar",
+    "lastUpdated": "2026-05-01T15:32:11.714Z"
+  }
+}
