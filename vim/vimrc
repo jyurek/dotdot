@@ -1,11 +1,9 @@
 set nocompatible
 call plug#begin('~/.vim/plugged')
 
-
 Plug '/usr/local/opt/fzf'
 Plug 'AndrewRadev/linediff.vim'
 Plug 'BlakeWilliams/vim-tbro'
-Plug 'ElmCast/elm-vim'
 Plug 'PeterRincker/vim-argumentative'
 Plug 'ap/vim-css-color'
 Plug 'avdgaag/vim-phoenix'
@@ -134,9 +132,9 @@ if v:version >= 700
     endtry
 endif
 
-" Remap autocomplete to Tab
-inoremap <Tab> <C-N>
-inoremap <S-Tab> <C-P>
+" " Remap autocomplete to Tab
+" inoremap <Tab> <C-N>
+" inoremap <S-Tab> <C-P>
 
 " No Help, please
 noremap <F1> <Esc>
@@ -178,6 +176,7 @@ let mapleader=" "
 map <Leader>h :nohls<Enter>
 nmap <Leader>, :up<CR>:cp<CR>
 nmap <Leader>. :up<CR>:cn<CR>
+" Convert Hashrocket
 nmap <Leader>; lF:xepldf>
 nmap <Leader>< :up<CR>:cpf<CR>
 nmap <Leader>= mmgg=G`mzz
@@ -185,7 +184,6 @@ nmap <Leader>> :up<CR>:cnf<CR>
 nmap <Leader>de o\|> (fn (l) -> Logger.info(": " <> inspect(l)); l end).()<Esc>F:i
 nmap <Leader>dr Orequire 'pry'; binding.pry<Esc>:w<CR>
 nmap <Leader>dj o\|> IO.inspect(label: "")<Esc>F"i
-nmap <Leader>diff mdjV/=====<CR>k"fynjV/>>>>><CR>k"sy:vne<CR>"fP:diffthis<CR>:vne<CR>"sP:diffthis<CR>
 nmap <Leader>ee :e <C-R>=expand("%:p:h") . '/'<CR>
 nmap <Leader>es :split <C-R>=expand("%:p:h") . '/'<CR>
 nmap <Leader>ev :vnew <C-R>=expand("%:p:h") . '/'<CR>
@@ -198,8 +196,6 @@ nmap <Leader>sao Osave_and_open_page<Esc>:w<CR>
 nmap <Leader>saos Osave_and_open_screenshot(nil, full: true)<Esc>:w<CR>
 nmap <Leader>u :UndotreeToggle<CR>
 nmap <Leader>p :Prettier<CR>
-nmap <Leader>f :copen<CR>
-nmap <Leader>F :cclose<CR>
 
 " Turn a path relative to % into a path relative to vim's pwd.
 nmap <Leader>R m`f'l"pdi'i<C-r>=resolve(expand("%:h") . "/<C-r>"")<CR><ESC>``
@@ -258,9 +254,6 @@ let &t_SI = "\x1b[\x35 q"
 let &t_SR = "\x1b[\x33 q"
 let &t_EI = "\x1b[\x30 q"
 
-" elm
-let g:elm_format_autosave = 1
-
 nmap <leader>ss :call <SID>SynStack()<CR>
 function! <SID>SynStack()
   if !exists("*synstack")
@@ -281,8 +274,13 @@ inoremap <expr> <Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<Down>"
 inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<Up>"
 
-nmap <Leader>x :s/\d\+/\=printf("%02x", submatch(0))/g<CR>
+" Convert integers to lowercase hex values. Ex "red=10" becomes "red=0a"
+nnoremap <Leader>x :s/\<\d\+\>/\=printf("%02x", submatch(0))/g<CR>
 
 command BD :bp\|bd #
 
+" Find an elixir HTML function component, since LSP won't
 map <Leader>fg "qyiw:exe 'grep "def '.@q.'"'<CR>
+
+" Prevent me from writing \ or ] as a filename, because that's silly.
+autocmd BufWritePre [\\\]]* try | echoerr 'Forbidden file name: '..expand('<afile>') | endtry

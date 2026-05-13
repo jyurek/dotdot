@@ -22,10 +22,6 @@ function latest_command {
   history | tail -n 1 | sed 's/[0-9 ]*\(.*\)/\1/'
 }
 
-function color_text {
-  echo "\[\e[$2m\]${1}\[\e[0m\]"
-}
-
 function prompt_command_function
 {
   if [[ $? == 0 ]]; then
@@ -59,7 +55,8 @@ function prompt_command_function
   # current_ruby=$(cat ~/.tool-versions | ag ruby | cut -d" " -f 2)
   color_ruby=$(color_text $current_ruby "34")
 
-  PS1="$last_result $color_runtime $color_ruby $color_elixir $color_node $color_cwd$git_branch \$ "
+  # $color_ruby $color_elixir $color_node 
+  PS1="$last_result $color_runtime $color_cwd$git_branch \$ "
 }
 
 export PROMPT_COMMAND=prompt_command_function

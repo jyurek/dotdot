@@ -1,3 +1,6 @@
+# If not running interactively, don't do anything and return early
+[[ $- == *i* ]] || return
+
 function is_frontmost {
   iterm_is_frontmost_application=$(osascript -e 'tell application "iTerm" to get frontmost')
   frontmost_in_iterm=$(osascript -e 'tell application "iTerm" to tell the current terminal to tell the current session to get id')
@@ -20,7 +23,7 @@ function ghistory
   git grep $1 $(git rev-list --all)
 }
 
-export BREW=/opt/homebrew/bin/brew
+export BREW=$(command -v brew 2>/dev/null || echo /opt/homebrew/bin/brew)
 export BREW_HOME=`$BREW --prefix`
 export PATH=./bin:$BREW_HOME/bin:$BREW_HOME/sbin:$PATH:$HOME/bin
 export EDITOR=$BREW_HOME/bin/vim
@@ -51,8 +54,10 @@ fi
 
 set -o vi
 
-eval `ssh-agent`
-ssh-add 2> /dev/null
+if [ -z "$SSH_AUTH_SOCK" ]; then
+  eval "$(ssh-agent -s)"
+  ssh-add --apple-use-keychain 2>/dev/null
+fi
 
 # Tab-completions
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
