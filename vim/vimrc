@@ -1,7 +1,12 @@
 set nocompatible
 call plug#begin('~/.vim/plugged')
 
-Plug '/usr/local/opt/fzf'
+let fzf_path = trim(system('brew --prefix fzf 2>/dev/null'))
+if isdirectory(fzf_path)
+  Plug fzf_path
+else
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+endif
 Plug 'AndrewRadev/linediff.vim'
 Plug 'BlakeWilliams/vim-tbro'
 Plug 'PeterRincker/vim-argumentative'
@@ -70,6 +75,9 @@ set colorcolumn=81
 set autoread
 set lazyredraw                         " Don't redraw during a macro
 set suffixesadd=.md                    " Also search for `thing.md` if you gd on `thing`
+
+" Statusline
+set statusline=%{pathshorten(expand('%F'))}%m%r%=%{coc#status()}\ %l,%c\ %P
 
 " Tab-complete options
 set complete=.,w,b,u,t,kspell
@@ -269,10 +277,10 @@ augroup strdr4605
   autocmd FileType typescript,typescriptreact set makeprg=npx\ tsc\ \\\|\ sed\ 's/(\\(.*\\),\\(.*\\)):/:\\1:\\2:/'
 augroup END
 
-inoremap <expr> <Tab> pumvisible() ? "\<C-y>" : "\<Tab>"
-inoremap <expr> <Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
-inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<Down>"
-inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<Up>"
+" inoremap <expr> <Tab> pumvisible() ? "\<C-y>" : "\<Tab>"
+" inoremap <expr> <Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
+" inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<Down>"
+" inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<Up>"
 
 " Convert integers to lowercase hex values. Ex "red=10" becomes "red=0a"
 nnoremap <Leader>x :s/\<\d\+\>/\=printf("%02x", submatch(0))/g<CR>

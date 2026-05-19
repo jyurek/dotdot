@@ -144,18 +144,10 @@ nnoremap <silent> <Leader>y :call <SID>show_documentation()<CR>
 nnoremap <silent> <Leader>d :call <SID>show_documentation()<CR>
 nnoremap <silent> <Leader>yc :call CocAction('getHover')
 
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
-" set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " " Mappings for CoCList
 " " Show all diagnostics.

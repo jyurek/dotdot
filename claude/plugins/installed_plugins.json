@@ -4,30 +4,30 @@
     "ideate@gnar": [
       {
         "scope": "user",
-        "installPath": "/Users/jyurek/.claude/plugins/cache/gnar/ideate/0.4.0",
-        "version": "0.4.0",
+        "installPath": "/Users/jyurek/.claude/plugins/cache/gnar/ideate/0.4.9",
+        "version": "0.4.9",
         "installedAt": "2026-05-01T15:32:31.716Z",
-        "lastUpdated": "2026-05-01T15:32:31.716Z",
+        "lastUpdated": "2026-05-15T15:17:59.323Z",
         "gitCommitSha": "d10de9f30f37ea0f1fefc44df2f566cd3a8306e4"
       }
     ],
     "implement@gnar": [
       {
         "scope": "user",
-        "installPath": "/Users/jyurek/.claude/plugins/cache/gnar/implement/0.5.4",
-        "version": "0.5.4",
+        "installPath": "/Users/jyurek/.claude/plugins/cache/gnar/implement/0.12.1",
+        "version": "0.12.1",
         "installedAt": "2026-05-01T15:32:57.231Z",
-        "lastUpdated": "2026-05-01T15:32:57.231Z",
+        "lastUpdated": "2026-05-15T15:17:59.322Z",
         "gitCommitSha": "d10de9f30f37ea0f1fefc44df2f566cd3a8306e4"
       }
     ],
     "ignite@gnar": [
       {
         "scope": "user",
-        "installPath": "/Users/jyurek/.claude/plugins/cache/gnar/ignite/0.4.0",
-        "version": "0.4.0",
+        "installPath": "/Users/jyurek/.claude/plugins/cache/gnar/ignite/0.4.7",
+        "version": "0.4.7",
         "installedAt": "2026-05-01T15:33:16.897Z",
-        "lastUpdated": "2026-05-01T15:33:16.897Z",
+        "lastUpdated": "2026-05-15T15:17:59.322Z",
         "gitCommitSha": "d10de9f30f37ea0f1fefc44df2f566cd3a8306e4"
       }
     ],
@@ -57,6 +57,27 @@
         "version": "unknown",
         "installedAt": "2026-05-01T15:34:40.491Z",
         "lastUpdated": "2026-05-01T15:34:40.491Z"
+      }
+    ],
+    "meta@gnar": [
+      {
+        "scope": "user",
+        "installPath": "/Users/jyurek/.claude/plugins/cache/gnar/meta/0.4.0",
+        "version": "0.4.0",
+        "installedAt": "2026-05-13T17:18:15.775Z",
+        "lastUpdated": "2026-05-15T15:17:59.323Z",
+        "gitCommitSha": "3ba00e629f6ec638eadd0861d70e686ec8adcafb"
+      }
+    ],
+    "audit@gnar": [
+      {
+        "scope": "user",
+        "installPath": "/Users/jyurek/.claude/plugins/cache/gnar/audit/0.4.0",
+        "version": "0.4.0",
+        "installedAt": "2026-05-14T11:12:48.361Z",
+        "lastUpdated": "2026-05-15T15:17:59.321Z",
+        "gitCommitSha": "8cebb4646baa28964f5e253ecc628a082cf14cfe",
+        "auto": true
       }
     ]
   }
