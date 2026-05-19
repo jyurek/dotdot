@@ -3,7 +3,7 @@
 # https://gist.githubusercontent.com/nberlette/1f7357b4857f40c63b5148433c8b2619/raw/21a46dba88d6c79c48b840597dd237459e002895/hex2rgb.sh
 
 function color_text {
-  echo "\e[$2m${1}\e[0m"
+  echo "\[\e[$2m\]${1}\[\e[0m\]"
 }
 
 function rgb_text {
