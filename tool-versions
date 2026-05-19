@@ -1,4 +1,4 @@
 crystal 1.9.2
-elixir 1.16.0-otp-26
+elixir 1.18.0-otp-26
 erlang 26.2.1
 nodejs 20.10.0
