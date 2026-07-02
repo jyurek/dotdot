@@ -4,11 +4,11 @@
     "ideate@gnar": [
       {
         "scope": "user",
-        "installPath": "/Users/jyurek/.claude/plugins/cache/gnar/ideate/0.4.9",
-        "version": "0.4.9",
+        "installPath": "/Users/jyurek/.claude/plugins/cache/gnar/ideate/2.1.0",
+        "version": "2.1.0",
         "installedAt": "2026-05-01T15:32:31.716Z",
-        "lastUpdated": "2026-05-15T15:17:59.323Z",
-        "gitCommitSha": "d10de9f30f37ea0f1fefc44df2f566cd3a8306e4"
+        "lastUpdated": "2026-06-24T16:58:12.586Z",
+        "gitCommitSha": "ab71f17fb27868646f1a45c72f70ced3cc34c6ed"
       }
     ],
     "implement@gnar": [
@@ -24,20 +24,20 @@
     "ignite@gnar": [
       {
         "scope": "user",
-        "installPath": "/Users/jyurek/.claude/plugins/cache/gnar/ignite/0.4.7",
-        "version": "0.4.7",
+        "installPath": "/Users/jyurek/.claude/plugins/cache/gnar/ignite/0.4.12",
+        "version": "0.4.12",
         "installedAt": "2026-05-01T15:33:16.897Z",
-        "lastUpdated": "2026-05-15T15:17:59.322Z",
-        "gitCommitSha": "d10de9f30f37ea0f1fefc44df2f566cd3a8306e4"
+        "lastUpdated": "2026-06-24T16:58:12.587Z",
+        "gitCommitSha": "ab71f17fb27868646f1a45c72f70ced3cc34c6ed"
       }
     ],
     "superpowers@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/jyurek/.claude/plugins/cache/claude-plugins-official/superpowers/5.1.0",
-        "version": "5.1.0",
+        "installPath": "/Users/jyurek/.claude/plugins/cache/claude-plugins-official/superpowers/6.0.3",
+        "version": "6.0.3",
         "installedAt": "2026-05-01T15:33:41.602Z",
-        "lastUpdated": "2026-05-06T13:33:01.738Z",
+        "lastUpdated": "2026-06-24T16:58:13.318Z",
         "gitCommitSha": "e7a2d16476bf042e9add4699c9d018a90f86e4a6"
       }
     ],
@@ -47,7 +47,7 @@
         "installPath": "/Users/jyurek/.claude/plugins/cache/claude-plugins-official/feature-dev/unknown",
         "version": "unknown",
         "installedAt": "2026-05-01T15:34:14.639Z",
-        "lastUpdated": "2026-05-01T15:34:14.639Z"
+        "lastUpdated": "2026-06-29T14:21:59.911Z"
       }
     ],
     "pr-review-toolkit@claude-plugins-official": [
@@ -56,7 +56,7 @@
         "installPath": "/Users/jyurek/.claude/plugins/cache/claude-plugins-official/pr-review-toolkit/unknown",
         "version": "unknown",
         "installedAt": "2026-05-01T15:34:40.491Z",
-        "lastUpdated": "2026-05-01T15:34:40.491Z"
+        "lastUpdated": "2026-06-29T14:21:59.912Z"
       }
     ],
     "meta@gnar": [
@@ -72,11 +72,11 @@
     "audit@gnar": [
       {
         "scope": "user",
-        "installPath": "/Users/jyurek/.claude/plugins/cache/gnar/audit/0.4.0",
-        "version": "0.4.0",
+        "installPath": "/Users/jyurek/.claude/plugins/cache/gnar/audit/0.4.2",
+        "version": "0.4.2",
         "installedAt": "2026-05-14T11:12:48.361Z",
-        "lastUpdated": "2026-05-15T15:17:59.321Z",
-        "gitCommitSha": "8cebb4646baa28964f5e253ecc628a082cf14cfe",
+        "lastUpdated": "2026-06-24T16:58:12.587Z",
+        "gitCommitSha": "ab71f17fb27868646f1a45c72f70ced3cc34c6ed",
         "auto": true
       }
     ]
