@@ -50,6 +50,11 @@
       "/private/tmp/claude"
     ]
   },
+  "model": "opus[1m]",
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh"
+  },
   "enabledPlugins": {
     "ideate@gnar": true,
     "implement@gnar": true,
@@ -115,13 +120,15 @@
       ]
     }
   },
-  "effortLevel": "xhigh",
+  "effortLevel": "high",
   "voice": {
-    "enabled": false,
+    "enabled": true,
     "mode": "hold"
   },
+  "skipWorkflowUsageWarning": true,
   "editorMode": "vim",
   "teammateMode": "auto",
   "skipAutoPermissionPrompt": true,
-  "voiceEnabled": false
+  "voiceEnabled": true,
+  "tui": "fullscreen"
 }
