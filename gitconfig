@@ -1,6 +1,7 @@
 [user]
   name = June Yurek
-  email = jyurek@gmail.com
+  email = june@bramley.cx
+  signingkey = ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDVYqb4AEefCWudzEzRBtKnhYp3AAdUwEzvv/oDby1yCt8diBPuzHP7tjGCgIG0SQwK/vjaN+fsL64gO91OANUH01JVGRrtsJwuw3uP7dRZXSM9FBYI9J7IMwqTubXnz0BQkfsNs1C2wyDrh8BbQFXGsrzmVaHT3/e5mFd3BCABxuAh6un7360zgSk9SmVvvFs5m8MDDKHS4h+XNP0nlO/ooTxCnsP9/rA6klUMIv/WyixJIl3xzQtDSn9DxFAWxmqk9m14ZPEN9w6tZrebp88OC9BaxTbyvQsB1scOVXWyQh6NdnH+LNpx/1XUJqI8KiKrt2GiRWKpQw9niw85cvEdTwvSVjnAPwAYIvcPkn/ocCKigrzcwtpBj9rFwX8vSS8mb0lubo3uk4pheR1+iO9INEgdGZ/0cFSjQ6rhXVNwYOaZf4T3iZVWVLIxmf7A9amn+Ca75vSDhQPCnTuiIOcL7keVeLsKTyrDiU1z/JNs2tjv064OC9+8sICJrAPTNDE= jyurek@brontosaurus.local
 [color]
   branch = true
   diff = true
@@ -83,9 +84,14 @@
   defaultBranch = main
 [commit]
   verbose = true
+	gpgsign = true
 [credential "https://github.com"]
 	helper = 
 	helper = !/opt/homebrew/bin/gh auth git-credential
 [credential "https://gist.github.com"]
 	helper = 
 	helper = !/opt/homebrew/bin/gh auth git-credential
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
