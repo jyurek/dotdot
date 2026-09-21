@@ -27,7 +27,7 @@ function ghistory
 export BREW=$(command -v brew 2>/dev/null || echo /opt/homebrew/bin/brew)
 export BREW_HOME="$($BREW --prefix)"
 export PATH="./safe/../bin:${BREW_HOME}/bin:${BREW_HOME}/sbin:${PATH}:${HOME}/bin"
-export EDITOR=$BREW_HOME/bin/vim
+export EDITOR=`which vim`
 export VISUAL=$EDITOR
 export CDPATH=.:~:~/Development
 export TERM=xterm-256color
@@ -35,7 +35,7 @@ export TERM_ITALICS=true
 
 alias :q="exit"
 alias :e="$EDITOR"
-alias rerc='source ~/.bash_profile'
+alias rerc='source ~/.bashrc'
 alias be='bundle exec'
 alias remigrate='rake db:migrate && rake db:migrate:redo && rake db:schema:dump db:test:prepare'
 alias dnsip='dig myip.opendns.com @resolver1.opendns.com +short'
@@ -56,7 +56,7 @@ fi
 set -o vi
 
 if [ -z "$SSH_AUTH_SOCK" ]; then
-  eval "$(ssh-agent -s)"
+  source <(ssh-agent -s)
   ssh-add --apple-use-keychain 2>/dev/null
 fi
 

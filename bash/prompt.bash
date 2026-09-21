@@ -33,8 +33,8 @@ function prompt_command_function
   color_runtime=$(color_text ${timer_show}s "33")
 
   cwd=$(pwd)
-  cwd=$(echo $cwd | sed 's/\/Users\/jyurek\/Development\/clients/\+/')
-  cwd=$(echo $cwd | sed 's/~\/Development\/clients/\+/')
+  cwd=$(echo $cwd | sed 's/\/Users\/jyurek\/Development/\+/')
+  cwd=$(echo $cwd | sed 's/~\/Development/\+/')
   color_cwd=$(color_text $cwd "32")
 
   git_dirty=$(parse_git_dirty)
@@ -47,9 +47,6 @@ function prompt_command_function
 
   current_node=type nvm > /dev/null 2>&1 && current_node=$(nvm current)
   color_node=$(color_text $current_node "31")
-
-  current_elixir=$(asdf list elixir | ag \\* | cut -d* -f2)
-  color_elixir=$(color_text $current_elixir  "35")
 
   current_ruby=type chruby > /dev/null 2>&1 && current_ruby=$(chruby | ag \\\* | cut -d" " -f 3)
   # current_ruby=$(cat ~/.tool-versions | ag ruby | cut -d" " -f 2)
