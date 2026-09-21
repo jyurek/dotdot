@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =7
+let g:netrw_dirhistcnt =8
+let g:netrw_dirhist_8='/Users/jyurek/.dot/bash'
 let g:netrw_dirhist_7='/Users/jyurek'
 let g:netrw_dirhist_6='/Users/jyurek/.bash'
 let g:netrw_dirhist_5='/Users/jyurek/Development/clients/mbta/alerts_ui/lib/alerts_ui_web/live/create_alert_mono_live/helpers'
@@ -9,4 +10,3 @@ let g:netrw_dirhist_2='/Users/jyurek/Development/clients/mbta/alerts_ui/lib/aler
 let g:netrw_dirhist_1='/Users/jyurek/Development/clients/mbta/alerts_ui/lib'
 let g:netrw_dirhist_0='/Users/jyurek/Development/clients/mbta/alerts_ui/lib/alerts_ui'
 let g:netrw_dirhist_9='/Users/jyurek/Development/clients/mbta/alerts_ui/lib/alerts_ui/helpers'
-let g:netrw_dirhist_8='/Users/jyurek/Development/clients/mbta/alerts_ui/lib/alerts_ui_web/live/create_alert_mono_live/helpers'

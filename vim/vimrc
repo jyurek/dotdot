@@ -20,7 +20,9 @@ Plug 'int3/vim-extradite'
 Plug 'janko-m/vim-test'
 Plug 'leafgarland/typescript-vim'
 Plug 'mbbill/undotree'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+if !has('nvim')
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+endif
 Plug 'pangloss/vim-javascript'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'peitalin/vim-jsx-typescript'
@@ -76,8 +78,10 @@ set autoread
 set lazyredraw                         " Don't redraw during a macro
 set suffixesadd=.md                    " Also search for `thing.md` if you gd on `thing`
 
+if !has('nvim')
 " Statusline
 set statusline=%{pathshorten(expand('%F'))}%m%r%=%{coc#status()}\ %l,%c\ %P
+endif
 
 " Tab-complete options
 set complete=.,w,b,u,t,kspell
