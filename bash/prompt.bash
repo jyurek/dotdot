@@ -45,12 +45,15 @@ function prompt_command_function
   color_git_branch=$(color_text "$git_branch" "31")
   git_branch=${git_branch:+" (${color_git_branch}${git_dirty})"}
 
-  current_node=type nvm > /dev/null 2>&1 && current_node=$(nvm current)
-  color_node=$(color_text $current_node "31")
+  # current_node=type nvm > /dev/null 2>&1 && current_node=$(nvm current)
+  # color_node=$(color_text $current_node "31")
 
-  current_ruby=type chruby > /dev/null 2>&1 && current_ruby=$(chruby | ag \\\* | cut -d" " -f 3)
-  # current_ruby=$(cat ~/.tool-versions | ag ruby | cut -d" " -f 2)
-  color_ruby=$(color_text $current_ruby "34")
+  # current_elixir=$(asdf list elixir | ag \\* | cut -d* -f2)
+  # color_elixir=$(color_text $current_elixir  "35")
+
+  # current_ruby=type chruby > /dev/null 2>&1 && current_ruby=$(chruby | ag \\\* | cut -d" " -f 3)
+  # # current_ruby=$(cat ~/.tool-versions | ag ruby | cut -d" " -f 2)
+  # color_ruby=$(color_text $current_ruby "34")
 
   # $color_ruby $color_elixir $color_node 
   PS1="$last_result $color_runtime $color_cwd$git_branch \$ "
