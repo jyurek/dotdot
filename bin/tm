@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+if [[ -z $1 ]]; then
+  tmux ls -O activity
+  exit 1
+fi
+
+if [[ -z $TMUX ]]; then
+  tmux new -S $1
+else
+  tmux has -t $1 || tmux new -d -s $1
+  tmux switch -t $1
+fi

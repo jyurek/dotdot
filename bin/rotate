@@ -1,0 +1,29 @@
+#!/bin/sh
+
+while getopts n: arg; do
+  case "${arg}" in
+    n) n=${OPTARG};;
+  esac
+done
+
+if [[ -z $n ]]; then
+  echo "Usage: rotate -n [count] file"
+  exit 1
+fi
+
+shift $(($OPTIND - 1))
+file=${1:-/dev/stdin}
+lines=()
+i=0
+while IFS='\n' read -r LINE || [ -n "$LINE" ]; do
+  if [[ $i -lt $n ]]; then
+    lines+=( "${LINE}" )
+    i=$i+1
+  else
+    echo $LINE
+  fi
+done < $file
+
+for line in "${lines[@]}"; do
+  echo "${line}"
+done
