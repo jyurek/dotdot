@@ -6,7 +6,8 @@
     "coc-solargraph": ">=1.2.3",
     "coc-tsserver": ">=1.9.9",
     "coc-kotlin": ">=0.1.0",
-    "coc-pyright": ">=1.1.355"
+    "coc-pyright": ">=1.1.355",
+    "@yaegassy/coc-ty": ">=0.3.2"
   },
   "disabled": [],
   "locked": []
