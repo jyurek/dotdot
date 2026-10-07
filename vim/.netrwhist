@@ -1,5 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =8
+let g:netrw_dirhistcnt =1
+let g:netrw_dirhist_1='/Users/jyurek/Development/olliemain/ops/docker/olliemain'
+let g:netrw_dirhist_0='/Users/jyurek/Development/olliemain/ops/docker'
+let g:netrw_dirhist_9='/Users/jyurek/.dot/bash'
 let g:netrw_dirhist_8='/Users/jyurek/Development/olliemain'
 let g:netrw_dirhist_7='/Users/jyurek/Development/olliemain/backend/modules'
 let g:netrw_dirhist_6='/Users/jyurek/Development/olliemain/backend/modules/products'
@@ -7,6 +10,3 @@ let g:netrw_dirhist_5='/Users/jyurek/Development/olliemain/backend/modules/produ
 let g:netrw_dirhist_4='/Users/jyurek/Development/olliemain/backend/modules/products'
 let g:netrw_dirhist_3='/Users/jyurek/Development/olliemain/backend/modules'
 let g:netrw_dirhist_2='/Users/jyurek/Development/olliemain/backend'
-let g:netrw_dirhist_1='/Users/jyurek/Development/olliemain/backend/olliemain'
-let g:netrw_dirhist_0='/Users/jyurek/Development/olliemain/backend'
-let g:netrw_dirhist_9='/Users/jyurek/Development/olliemain/backend/tests'

@@ -36,6 +36,7 @@ export VISUAL=$EDITOR
 export CDPATH=.:~:~/Development
 export TERM=xterm-256color
 export TERM_ITALICS=true
+export DEV_HOME=$HOME/Development
 
 alias :q="exit"
 alias :e="$EDITOR"

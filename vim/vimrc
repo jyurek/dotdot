@@ -74,9 +74,10 @@ set colorcolumn=81
 set autoread
 set lazyredraw                         " Don't redraw during a macro
 set suffixesadd=.md                    " Also search for `thing.md` if you gd on `thing`
+set signcolumn=yes                     " always show gutter to prevent flicker
 
 " Tab-complete options
-set complete=.,w,b,u,t,kspell
+set complete=.,w,b,u,t,kspell,o
 set completeopt=longest,menu
 
 " Global Undo
