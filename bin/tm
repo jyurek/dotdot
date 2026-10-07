@@ -2,7 +2,7 @@
 
 if [[ -z $1 ]]; then
   tmux ls -O activity
-  exit 1
+  exit
 fi
 
 if [[ -z $TMUX ]]; then

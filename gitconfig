@@ -34,6 +34,8 @@
   pick = cherry-pick
   child-of = !sh -c '([[ $(git merge-base $1 $0) == $(git log -n 1 --format="%H" $0) ]] && echo "$0 is a child of $1") || echo "$0 is not a child of $1"'
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue%an%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  changed = !sh -c 'git diff-tree --no-commit-id --name-only -r ${1:-HEAD}'
+  changed-from = !sh -c 'git diff $(git merge-base ${1:-${MAIN_WORK_BRANCH:-main}} HEAD) --name-only --relative -- .'
   publish = !sh -c 'git push origin \"$0\" && git config \"branch.$0.remote\" origin && git config \"branch.$0.merge\" \"refs/heads/$0\"'
   track = !sh -c 'git config \"branch.$1.remote\" $0 && git config \"branch.$1.merge\" \"refs/heads/$1\"'
   l = log --name-status --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue%an%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
@@ -44,7 +46,7 @@
   compare = log --left-right --graph --cherry-pick --oneline
   message = show -s --pretty=full
   old-utd = !sh -c 'git fetch ${0/sh/origin} && git rebase ${0/sh/origin}/${1:-main}'
-  utd = "!f() { b=${2:-$1}; r=${1/$b/origin}; git fetch \"${r:-origin}\" && git rebase \"${r:-origin}\"/\"${b:-main}\"; }; f"
+  utd = "!f() { b=${2:-$1}; r=${1/$b/origin}; git fetch \"${r:-origin}\" && git rebase \"${r:-origin}\"/\"${b:-${MAIN_WORK_BRANCH:-main}}\"; }; f"
   utdi = "!f() { b=${2:-$1}; r=${1/$b/origin}; git fetch \"${r:-origin}\" && git rebase -i \"${r:-origin}\"/\"${b:-main}\"; }; f"
   # f() { b=${2:-$1}; r=${1/$b/origin}; echo git fetch "${r:-origin}" && echo git rebase -i "${r:-origin}"/"${b:-main}"; }; 
   rmb = !git push $0 :$1 && git branch -d $1
