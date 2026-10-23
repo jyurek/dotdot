@@ -11,20 +11,22 @@ Personal dotfiles for macOS. Files here are intended to be symlinked (or copied)
 - `bash/` — shell config (linked to `~/.bash`); `bash/bash_profile` is the entry point
 - `bin/` — scripts: `dot-install.sh` (symlinks everything into `$HOME`, backing up existing files), `tm` (tmux session create/switch), `rotate` (keep last N lines of a file)
 - `claude/` — Claude Code `settings.json` (deny list for destructive git commands) and plugin manifests; everything else is gitignored
-- `claude.json` — `~/.claude.json`
 - `config/` — linked to `~/.config`: `kitty`, `nvim` (`init.lua`, uses `vim.pack` and `ty` LSP, then sources `~/.vimrc`), `gh`, `git/ignore`, `op`, `shopify`, `uv`, `fish`, `cmux`, plus app state dumps (coc, filezilla, gatsby, configstore, cagent, yarn)
 - `vim/` — linked to `~/.vim` (vimrc, gvimrc, coc, plugin/, spell files)
-- `gitconfig`, `inputrc`, `profile`, `tmux.conf`, `tool-versions`, `ruby-version` — top-level dotfiles
-- `.gitignore` excludes `vim/plugged/*`, `node_modules`, viminfo, and most of `claude/`
+- `gitconfig`, `inputrc`, `tmux.conf`, `tool-versions`, `ruby-version` — top-level dotfiles
+- `.gitignore` excludes `vim/plugged/*`, `node_modules`, viminfo, `claude.json` (Claude Code runtime state, not config), and most of `claude/`
 
-Note: `bin/dot-install.sh` links `bash/rc` to `~/.bash_profile`/`~/.bashrc`, but `bash/rc` no longer exists; the entry point is now `bash/bash_profile`. `gitconfig`, `profile`, and `ruby-version` are not linked by the installer.
+Installer caveats (`bin/dot-install.sh`):
+- It still has `link claude.json "${HOME}/.claude.json"`, but `claude.json` is no longer tracked, so on a fresh clone this creates a dangling symlink. Remove the line.
+- The `bin/` loop calls `link $file`, which resolves to `~/.dot/<file>` rather than `~/.dot/bin/<file>`, assumes `~/bin` exists, and tests `[[ file -ne $0 ]]` (compares the literal string `file`). It needs rework.
+- `ruby-version` and `vim/gvimrc` are not linked.
 
 ## Applying Changes
 
 After editing any bash file, reload with:
 ```sh
 source ~/.bash_profile
-# or use the alias (currently sources ~/.bashrc):
+# or use the alias:
 rerc
 ```
 
@@ -52,7 +54,7 @@ Each `*.bash` file is a standalone concern:
 - `ollie.bash` — `OLLIEMAIN_ROOT` for the work repo
 - `dot.bash` — currently only `ghistory`/`gemcd` helpers
 - `anthropic.bash`, `aws.bash`, `asdf.bash`, `chruby.bash`, `ruby-build.bash` — empty or fully commented out (asdf/chruby are disabled); `ruby.bash` sets Ruby GC env vars
-- `bash_profile` is the entry point; `logout` is `~/.bash_logout`
+- `bash_profile` is the entry point; `profile` (`~/.profile`) just unsets `PROMPT_COMMAND`; `logout` is `~/.bash_logout`
 
 Tool versions are tracked in `tool-versions` (asdf format: crystal, elixir, erlang, nodejs); `ruby-version` is `4`.
 

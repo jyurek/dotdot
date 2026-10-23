@@ -43,17 +43,18 @@ link bash/bash_profile "${HOME}/.bash_profile"
 link bash/profile      "${HOME}/.profile"
 link bash/logout       "${HOME}/.bash_logout"
 link claude            "${HOME}/.claude"
-link claude.json       "${HOME}/.claude.json"
 link config            "${HOME}/.config"
 link inputrc           "${HOME}/.inputrc"
 link gitconfig         "${HOME}/.gitconfig"
 link tmux.conf         "${HOME}/.tmux.conf"
 link tool-versions     "${HOME}/.tool-versions"
+link ruby-version      "${HOME}/.ruby-version"
 link vim               "${HOME}/.vim"
 link vim/vimrc         "${HOME}/.vimrc"
 for file in `ls ./bin`; do
-  if [[ file -ne $0 ]]; then # Not this installer
-    link $file         "${HOME}/bin/$file"
+  if [[ $file -ne $0 ]]; then # Not this installer
+    f=`basename $file`
+    link $f            "${HOME}/bin/$f"
   fi
 done
 
