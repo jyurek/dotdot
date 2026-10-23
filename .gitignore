@@ -2,6 +2,7 @@ viminfo
 vim/plugged/*
 **/node_modules
 !**/*.keep
+vim/.netrwhist
 
 claude/*
 !claude/settings.json

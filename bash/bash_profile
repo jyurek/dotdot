@@ -30,8 +30,8 @@ function ghistory
 
 export BREW=$(command -v brew 2>/dev/null || echo /opt/homebrew/bin/brew)
 export BREW_HOME="$($BREW --prefix)"
-export PATH="./safe/../bin:${BREW_HOME}/bin:${BREW_HOME}/sbin:${PATH}:${HOME}/bin"
-export EDITOR=`which vim`
+export PATH="${HOME}/bin/overrides:./safe/../bin:${BREW_HOME}/bin:${BREW_HOME}/sbin:${PATH}:${HOME}/bin"
+export EDITOR=`which nvim`
 export VISUAL=$EDITOR
 export CDPATH=.:~:~/Development
 export TERM=xterm-256color

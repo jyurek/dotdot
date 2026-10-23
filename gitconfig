@@ -26,6 +26,7 @@
   unstaged = diff
   both = diff HEAD
   itb = !git fetch && git diff origin/main
+  db = !sh -c 'git diff $(git merge-base HEAD ${0:-develop})'
   amend = commit --amend -v
   cs = commit --amend -v -C HEAD
   ch = cherry -v
@@ -53,7 +54,7 @@
   rmbl = !sh -c 'git branch -d $0 && git remote prune origin'
   filesin = diff-tree --no-commit-id --name-only -r
   changesin = diff-tree --no-commit-id --name-status -r
-  pr = !hub pull-request
+  pr = !gh pr
   sha = log -n 1 --pretty=format:%H
   recent = branch --sort=-committerdate --format=%(committerdate:relative)%09%(refname:short)
 	conflicted = !vim +Conflicted

@@ -6,7 +6,7 @@ if [[ -z $1 ]]; then
 fi
 
 if [[ -z $TMUX ]]; then
-  tmux new -S $1
+  tmux new -A -n $1
 else
   tmux has -t $1 || tmux new -d -s $1
   tmux switch -t $1
