@@ -25,8 +25,7 @@
   staged = diff --cached
   unstaged = diff
   both = diff HEAD
-  itb = !git fetch && git diff origin/main
-  db = !sh -c 'git diff $(git merge-base HEAD ${0:-develop})'
+  itb = !sh -c 'git diff $(git merge-base HEAD ${1:-develop})'
   amend = commit --amend -v
   cs = commit --amend -v -C HEAD
   ch = cherry -v
