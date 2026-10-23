@@ -12,14 +12,11 @@ Personal dotfiles for macOS. Files here are intended to be symlinked (or copied)
 - `bin/` — scripts: `dot-install.sh` (symlinks everything into `$HOME`, backing up existing files), `tm` (tmux session create/switch), `rotate` (keep last N lines of a file)
 - `claude/` — Claude Code `settings.json` (deny list for destructive git commands) and plugin manifests; everything else is gitignored
 - `config/` — linked to `~/.config`: `kitty`, `nvim` (`init.lua`, uses `vim.pack` and `ty` LSP, then sources `~/.vimrc`), `gh`, `git/ignore`, `op`, `shopify`, `uv`, `fish`, `cmux`, plus app state dumps (coc, filezilla, gatsby, configstore, cagent, yarn)
-- `vim/` — linked to `~/.vim` (vimrc, gvimrc, coc, plugin/, spell files)
+- `vim/` — linked to `~/.vim` (vimrc, coc, plugin/, spell files)
 - `gitconfig`, `inputrc`, `tmux.conf`, `tool-versions`, `ruby-version` — top-level dotfiles
 - `.gitignore` excludes `vim/plugged/*`, `node_modules`, viminfo, `claude.json` (Claude Code runtime state, not config), and most of `claude/`
 
-Installer caveats (`bin/dot-install.sh`):
-- It still has `link claude.json "${HOME}/.claude.json"`, but `claude.json` is no longer tracked, so on a fresh clone this creates a dangling symlink. Remove the line.
-- The `bin/` loop calls `link $file`, which resolves to `~/.dot/<file>` rather than `~/.dot/bin/<file>`, assumes `~/bin` exists, and tests `[[ file -ne $0 ]]` (compares the literal string `file`). It needs rework.
-- `ruby-version` and `vim/gvimrc` are not linked.
+`bin/dot-install.sh` is idempotent: it symlinks the files above (and each script in `bin/` into `~/bin`), backing up any real files it would replace. `claude.json` is intentionally not tracked (see `.gitignore`).
 
 ## Applying Changes
 

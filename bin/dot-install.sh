@@ -51,10 +51,12 @@ link tool-versions     "${HOME}/.tool-versions"
 link ruby-version      "${HOME}/.ruby-version"
 link vim               "${HOME}/.vim"
 link vim/vimrc         "${HOME}/.vimrc"
-for file in `ls ./bin`; do
-  if [[ $file -ne $0 ]]; then # Not this installer
-    f=`basename $file`
-    link $f            "${HOME}/bin/$f"
+mkdir -p "${HOME}/bin"
+shopt -s nullglob
+for file in "${DOT}"/bin/*; do
+  f=`basename "${file}"`
+  if [[ ${f} != "`basename "$0"`" ]]; then # Not this installer
+    link "bin/${f}" "${HOME}/bin/${f}"
   fi
 done
 
