@@ -6,12 +6,25 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Personal dotfiles for macOS. Files here are intended to be symlinked (or copied) into `$HOME`. The repo lives at `~/.dot`.
 
+## Layout
+
+- `bash/` — shell config (linked to `~/.bash`); `bash/bash_profile` is the entry point
+- `bin/` — scripts: `dot-install.sh` (symlinks everything into `$HOME`, backing up existing files), `tm` (tmux session create/switch), `rotate` (keep last N lines of a file)
+- `claude/` — Claude Code `settings.json` (deny list for destructive git commands) and plugin manifests; everything else is gitignored
+- `claude.json` — `~/.claude.json`
+- `config/` — linked to `~/.config`: `kitty`, `nvim` (`init.lua`, uses `vim.pack` and `ty` LSP, then sources `~/.vimrc`), `gh`, `git/ignore`, `op`, `shopify`, `uv`, `fish`, `cmux`, plus app state dumps (coc, filezilla, gatsby, configstore, cagent, yarn)
+- `vim/` — linked to `~/.vim` (vimrc, gvimrc, coc, plugin/, spell files)
+- `gitconfig`, `inputrc`, `profile`, `tmux.conf`, `tool-versions`, `ruby-version` — top-level dotfiles
+- `.gitignore` excludes `vim/plugged/*`, `node_modules`, viminfo, and most of `claude/`
+
+Note: `bin/dot-install.sh` links `bash/rc` to `~/.bash_profile`/`~/.bashrc`, but `bash/rc` no longer exists; the entry point is now `bash/bash_profile`. `gitconfig`, `profile`, and `ruby-version` are not linked by the installer.
+
 ## Applying Changes
 
 After editing any bash file, reload with:
 ```sh
 source ~/.bash_profile
-# or use the alias:
+# or use the alias (currently sources ~/.bashrc):
 rerc
 ```
 
@@ -21,17 +34,27 @@ After editing `vim/vimrc`, reload with `<Leader>rc` or `:source $MYVIMRC`.
 
 ## Bash Architecture
 
-`bash/rc` is the entry point (sourced from `~/.bash_profile` or `~/.bashrc`). It sets environment variables, aliases, and then sources every `*.bash` file in `~/.bash/` automatically via a glob loop.
+`bash/bash_profile` returns early when non-interactive, sets `PATH`, `EDITOR` (nvim), `CDPATH` (`.:~:~/Development`), `DEV_HOME`, aliases (`be`, `g`, `rerc`, `uvr`...), `set -o vi`, starts ssh-agent if needed, loads bash-completion, then sources every `*.bash` file in `~/.bash/` via a glob loop (alphabetical, so `00.bash` and `01_color.bash` load first).
 
 Each `*.bash` file is a standalone concern:
-- `color.bash` — `color_text <text> <ansi-code>` and `rgb_text <hex> <text>` helpers used by `prompt.bash`
+- `00.bash` — empty placeholder
+- `01_color.bash` — `color_text <text> <ansi-code>` and `rgb_text <hex> <text>` helpers used by `prompt.bash`
+- `hex2rgb.bash` — `hex2rgb` helper
 - `prompt.bash` — builds `PS1` with exit code, elapsed time, cwd (abbreviated), git branch + dirty marker, via `PROMPT_COMMAND`
-- `asdf.bash` — configures asdf shims (`ASDF_DATA_DIR=/opt/bin/asdf`)
-- `chruby.bash` — loads chruby from Homebrew, activates Ruby from `~/.ruby-version`; rubies live at `/opt/rubies`
+- `cd.bash` — overrides `cd` to activate/deactivate a `.venv` found in parent directories
+- `python.bash` — uv env and aliases (`uvr`, `uvm`)
+- `git.bash` — `MAIN_WORK_BRANCH=develop`
 - `fzf.bash` — fzf keybindings; uses `fd` for path completion; completion trigger is `\`
-- `elixir.bash` — enables IEx/Erlang shell history via `ERL_AFLAGS`
+- `completion.bash` / `completions.bash` — Homebrew bash-completion and custom completions (running processes, etc.)
+- `tmux.bash` — tmux session tab completion
+- `nvm.bash` — loads nvm from Homebrew
+- `docker.bash`, `android.bash` — PATH additions
+- `ollie.bash` — `OLLIEMAIN_ROOT` for the work repo
+- `dot.bash` — currently only `ghistory`/`gemcd` helpers
+- `anthropic.bash`, `aws.bash`, `asdf.bash`, `chruby.bash`, `ruby-build.bash` — empty or fully commented out (asdf/chruby are disabled); `ruby.bash` sets Ruby GC env vars
+- `bash_profile` is the entry point; `logout` is `~/.bash_logout`
 
-Tool versions are tracked in `.tool-versions` (asdf format).
+Tool versions are tracked in `tool-versions` (asdf format: crystal, elixir, erlang, nodejs); `ruby-version` is `4`.
 
 ## Vim Setup
 

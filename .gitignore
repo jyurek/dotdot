@@ -5,6 +5,7 @@ vim/plugged/*
 vim/.netrwhist
 
 claude/*
+claude.json
 !claude/settings.json
 !claude/plugins/
 claude/plugins/*

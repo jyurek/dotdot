@@ -40,23 +40,15 @@ export DEV_HOME=$HOME/Development
 
 alias :q="exit"
 alias :e="$EDITOR"
-alias rerc='source ~/.bashrc'
+alias rerc='source ~/.bash_profile'
 alias be='bundle exec'
+alias pm='python manage.py'
 alias remigrate='rake db:migrate && rake db:migrate:redo && rake db:schema:dump db:test:prepare'
 alias dnsip='dig myip.opendns.com @resolver1.opendns.com +short'
 alias psg='ps aux | ag'
 alias ln='ln -v'
 alias servedir='ruby -run -e httpd . -p 9090'
 alias listening='lsof -iTCP -sTCP:LISTEN -P -n'
-
-# shortcut git
-function g {
-if [[ $# > 0 ]]; then
-  git $@
-else
-  git st
-fi
-}
 
 set -o vi
 
