@@ -1,0 +1,4 @@
+#!/usr/bin/osascript
+on run argv
+  tell application id "com.runningwithcrayons.Alfred" to run trigger "large_type" in workflow "com.jonyurek.large_type" with argument (item 1 of argv)
+end run
