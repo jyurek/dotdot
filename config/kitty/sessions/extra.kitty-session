@@ -1,0 +1,10 @@
+new_os_window
+enabled_layouts splits,stack,tall
+layout splits
+os_window_title extra
+os_window_state maximized
+
+cd ~/.dot
+launch --var reason=editor
+launch --location=vsplit --var reason=term
+focus
