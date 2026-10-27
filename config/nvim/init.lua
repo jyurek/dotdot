@@ -56,3 +56,13 @@ vim.keymap.set("i", "<CR>", function()
   end,
   { expr = true }
 )
+
+-- Tell kitty nvim is focused so it passes ctrl+hjkl through (see kitty.conf)
+if vim.env.KITTY_WINDOW_ID then
+  vim.api.nvim_create_autocmd({ "VimEnter", "VimResume" }, {
+    callback = function() io.stdout:write("\x1b]1337;SetUserVar=IS_NVIM=MQo\007") end,
+  })
+  vim.api.nvim_create_autocmd({ "VimLeave", "VimSuspend" }, {
+    callback = function() io.stdout:write("\x1b]1337;SetUserVar=IS_NVIM\007") end,
+  })
+end

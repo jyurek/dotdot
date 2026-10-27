@@ -34,29 +34,31 @@
     "superpowers@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/jyurek/.claude/plugins/cache/claude-plugins-official/superpowers/6.0.3",
-        "version": "6.0.3",
+        "installPath": "/Users/jyurek/.claude/plugins/cache/claude-plugins-official/superpowers/7.0.0",
+        "version": "7.0.0",
         "installedAt": "2026-05-01T15:33:41.602Z",
-        "lastUpdated": "2026-06-24T16:58:13.318Z",
-        "gitCommitSha": "e7a2d16476bf042e9add4699c9d018a90f86e4a6"
+        "lastUpdated": "2026-10-26T16:21:19.773Z",
+        "gitCommitSha": "bb92a77741419a4ab5f06e711a283343f1ada0c3"
       }
     ],
     "feature-dev@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/jyurek/.claude/plugins/cache/claude-plugins-official/feature-dev/unknown",
-        "version": "unknown",
+        "installPath": "/Users/jyurek/.claude/plugins/cache/claude-plugins-official/feature-dev/58267944f921",
+        "version": "58267944f921",
         "installedAt": "2026-05-01T15:34:14.639Z",
-        "lastUpdated": "2026-06-29T14:21:59.911Z"
+        "lastUpdated": "2026-10-26T16:21:17.814Z",
+        "gitCommitSha": "58267944f92187b7d6a1c822165c96c81c864806"
       }
     ],
     "pr-review-toolkit@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/jyurek/.claude/plugins/cache/claude-plugins-official/pr-review-toolkit/unknown",
-        "version": "unknown",
+        "installPath": "/Users/jyurek/.claude/plugins/cache/claude-plugins-official/pr-review-toolkit/58267944f921",
+        "version": "58267944f921",
         "installedAt": "2026-05-01T15:34:40.491Z",
-        "lastUpdated": "2026-06-29T14:21:59.912Z"
+        "lastUpdated": "2026-10-26T16:21:17.813Z",
+        "gitCommitSha": "58267944f92187b7d6a1c822165c96c81c864806"
       }
     ],
     "meta@gnar": [
