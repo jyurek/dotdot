@@ -61,7 +61,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "~/bin/lt \"Claude finished: $(basename \"$PWD\")\" >/dev/null 2>&1 || true",
+            "command": "if [ -n \"$KITTY_WINDOW_ID\" ] && kitty @ ls 2>/dev/null | jq -e --argjson id \"$KITTY_WINDOW_ID\" '[.[].tabs[].windows[] | select(.id == $id) | .is_focused] | any' >/dev/null 2>&1; then exit 0; fi; ~/bin/lt \"Claude finished: $(basename \"$PWD\")\" >/dev/null 2>&1 || true",
             "async": true
           }
         ]
