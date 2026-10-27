@@ -57,6 +57,7 @@
   sha = log -n 1 --pretty=format:%H
   recent = branch --sort=-committerdate --format=%(committerdate:relative)%09%(refname:short)
 	conflicted = !vim +Conflicted
+	whatchanged = log --raw --no-merges
 [merge "gemfilelock"]
   name = relocks the gemfile.lock
   driver = bundle lock

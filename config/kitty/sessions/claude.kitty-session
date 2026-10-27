@@ -1,0 +1,35 @@
+
+new_tab
+layout stack
+enabled_layouts splits,stack,tall
+set_layout_state {"opts": {}, "class": "Stack", "all_windows": {"active_group_idx": 1, "active_group_history": [8, 7], "window_groups": [{"id": 7, "window_ids": [11]}, {"id": 8, "window_ids": [12]}]}}
+cd /Users/jyurek/Development/olliemain
+
+launch 'kitty-unserialize-data={"id": 11, "cmd_at_shell_startup": ["/opt/homebrew/Cellar/neovim/0.12.5_1/bin/nvim"]}' --var=IS_VIM=true '--var=IS_NVIM=1 '
+launch 'kitty-unserialize-data={"id": 12}' --var=IS_VIM=false
+focus
+
+focus_tab 0
+
+
+new_os_window
+
+new_tab
+layout splits
+enabled_layouts splits,stack,tall
+set_layout_state {"pairs": {"one": 9}, "opts": {"split_axis": "horizontal", "equalize_on_window_close": "n"}, "class": "Splits", "all_windows": {"active_group_idx": 0, "active_group_history": [9], "window_groups": [{"id": 9, "window_ids": [13]}]}}
+cd /Users/jyurek/Development/olliemain
+
+launch 'kitty-unserialize-data={"id": 13, "cmd_at_shell_startup": "claude --resume b4779b1f-ab75-498e-99c8-9f4311d6e81a"}'
+focus
+
+new_tab
+layout splits
+enabled_layouts splits,stack,tall
+set_layout_state {"pairs": {"one": 10}, "opts": {"split_axis": "horizontal", "equalize_on_window_close": "n"}, "class": "Splits", "all_windows": {"active_group_idx": 0, "active_group_history": [10], "window_groups": [{"id": 10, "window_ids": [14]}]}}
+cd /Users/jyurek/.dot
+
+launch 'kitty-unserialize-data={"id": 14, "cmd_at_shell_startup": "claude --resume 75d37a57-df85-4bac-8a57-16eb1d351045"}'
+focus
+
+focus_tab 0
