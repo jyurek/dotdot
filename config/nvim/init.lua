@@ -40,6 +40,13 @@ vim.keymap.set("n", "L", vim.lsp.buf.hover)
 vim.keymap.set("i", "C-S", function() vim.lsp.buf.signature_help() end)
 vim.keymap.set("n", "<leader>qf", vim.diagnostic.setqflist)
 
+-- Ruff Formatting
+vim.keymap.set("n", "<leader>fc", ":!ruff check %<CR>")
+vim.keymap.set("n", "<leader>fC", ":!ruff check --fix %<CR>")
+vim.keymap.set("n", "<leader>fF", ":!ruff format %<CR>")
+vim.keymap.set("n", "<leader>fI", ":!ruff check --isolated --select F401,F821 %<CR>")
+vim.keymap.set("n", "<leader>fI", ":!ruff check --isolated --select F401,F821 --fix %<CR>")
+
 vim.o.winborder="single"
 vim.opt.completeopt = { "menuone", "noselect", "popup" }
 
