@@ -1,0 +1,24 @@
+#!/bin/sh
+# Run a command in a borderless kitty panel inset 15% from each screen edge.
+# Usage: kp <command> [args...]
+read -r w h <<EOF
+$(osascript -e 'tell application "Finder" to get bounds of window of desktop' | awk -F', ' '{print $3, $4}')
+EOF
+x=$((w * 15 / 100))
+y=$((h * 15 / 100))
+kitty="/Applications/kitty.app/Contents/MacOS/kitten"
+
+out=$(mktemp)
+${kitty} \
+    panel \
+    --focus-policy=exclusive \
+    --hide-on-focus-loss \
+    --margin-left="$x" \
+    --margin-right="$x" \
+    --margin-top="$y" \
+    --margin-bottom="$y" \
+    --edge=center \
+    --layer=overlay \
+    sh -c 'out=$1; shift; $@ >"$out"' _ "$out" "$@"
+cat "$out"
+rm -f "$out"
