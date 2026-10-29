@@ -1,0 +1,41 @@
+#!/bin/bash
+# Claude Code status line: model, session cost, and 5-hour/7-day plan usage.
+
+input=$(cat)
+field() { jq -r "$1 // empty" <<<"$input"; }
+
+# resets_at may arrive as epoch seconds or an ISO timestamp; print it as local time.
+fmt_reset() {
+  local t=$1 fmt=$2 epoch
+  [ -z "$t" ] && return
+  if [[ $t =~ ^[0-9]+$ ]]; then
+    epoch=$t
+  else
+    epoch=$(date -j -u -f '%Y-%m-%dT%H:%M:%S' "${t%%.*}" +%s 2>/dev/null) || return
+  fi
+  date -r "$epoch" "+$fmt"
+}
+
+# Yellow past 70% used, red past 90%.
+usage() {
+  local label=$1 pct=$2 reset=$3 color=32
+  [ -z "$pct" ] && return
+  pct=${pct%.*}
+  (( pct >= 70 )) && color=33
+  (( pct >= 90 )) && color=31
+  printf ' │ %s \e[%sm%s%%\e[0m used, %s%% left' "$label" "$color" "$pct" "$((100 - pct))"
+  [ -n "$reset" ] && printf ' (resets %s)' "$reset"
+}
+
+model=$(field .model.display_name)
+session=$(field .cost.total_cost_usd)
+five=$(field .rate_limits.five_hour.used_percentage)
+five_reset=$(fmt_reset "$(field .rate_limits.five_hour.resets_at)" '%-l:%M%p')
+week=$(field .rate_limits.seven_day.used_percentage)
+week_reset=$(fmt_reset "$(field .rate_limits.seven_day.resets_at)" '%a %-l%p')
+
+printf '%s' "$model"
+[ -n "$session" ] && printf ' │ session $%.2f' "$session"
+usage 5h "$five" "$five_reset"
+usage 7d "$week" "$week_reset"
+echo

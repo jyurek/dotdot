@@ -44,21 +44,21 @@
     "feature-dev@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/jyurek/.claude/plugins/cache/claude-plugins-official/feature-dev/41f619d61b99",
-        "version": "41f619d61b99",
+        "installPath": "/Users/jyurek/.claude/plugins/cache/claude-plugins-official/feature-dev/1.0.1",
+        "version": "1.0.1",
         "installedAt": "2026-05-01T15:34:14.639Z",
-        "lastUpdated": "2026-10-27T13:12:39.672Z",
-        "gitCommitSha": "41f619d61b999adec1a1c8deb97d1a5b6ac35bb6"
+        "lastUpdated": "2026-10-29T13:02:35.967Z",
+        "gitCommitSha": "f8c5e7a1dcb71b10cb74586224b5401f3de5db28"
       }
     ],
     "pr-review-toolkit@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "/Users/jyurek/.claude/plugins/cache/claude-plugins-official/pr-review-toolkit/41f619d61b99",
-        "version": "41f619d61b99",
+        "installPath": "/Users/jyurek/.claude/plugins/cache/claude-plugins-official/pr-review-toolkit/1.0.1",
+        "version": "1.0.1",
         "installedAt": "2026-05-01T15:34:40.491Z",
-        "lastUpdated": "2026-10-27T13:12:39.670Z",
-        "gitCommitSha": "41f619d61b999adec1a1c8deb97d1a5b6ac35bb6"
+        "lastUpdated": "2026-10-29T13:02:35.968Z",
+        "gitCommitSha": "f8c5e7a1dcb71b10cb74586224b5401f3de5db28"
       }
     ],
     "meta@gnar": [
