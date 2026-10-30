@@ -1,0 +1,2 @@
+#!/bin/sh
+kitten @ ls | jq -r '..|.session_name? // empty' | uniq | bin/kp /opt/homebrew/bin/fzf | xargs kitten @ action goto_session

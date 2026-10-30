@@ -6,10 +6,14 @@ $(osascript -e 'tell application "Finder" to get bounds of window of desktop' | 
 EOF
 x=$((w * 15 / 100))
 y=$((h * 15 / 100))
-kitty="/Applications/kitty.app/Contents/MacOS/kitten"
+kitten="/Applications/kitty.app/Contents/MacOS/kitten"
 
+in=$(mktemp)
 out=$(mktemp)
-${kitty} \
+
+cat </dev/stdin >$in
+
+${kitten} \
     panel \
     --focus-policy=exclusive \
     --hide-on-focus-loss \
@@ -19,6 +23,7 @@ ${kitty} \
     --margin-bottom="$y" \
     --edge=center \
     --layer=overlay \
-    sh -c 'out=$1; shift; $@ >"$out"' _ "$out" "$@"
+    sh -c 'out=$1; in=$2; shift; shift; $@ <"$in" >"$out"' _ "$out" "$in" "$@"
 cat "$out"
+rm -f "$in"
 rm -f "$out"
