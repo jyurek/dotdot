@@ -51,10 +51,6 @@
     ]
   },
   "model": "opus[1m]",
-  "statusLine": {
-    "type": "command",
-    "command": "~/bin/claude-statusline"
-  },
   "hooks": {
     "Stop": [
       {
@@ -67,6 +63,10 @@
         ]
       }
     ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/bin/claude-statusline"
   },
   "enabledPlugins": {
     "ideate@gnar": true,
@@ -134,6 +134,7 @@
     }
   },
   "effortLevel": "high",
+  "tui": "fullscreen",
   "voice": {
     "enabled": true,
     "mode": "hold"
@@ -143,5 +144,5 @@
   "teammateMode": "auto",
   "skipAutoPermissionPrompt": true,
   "voiceEnabled": true,
-  "tui": "fullscreen"
+  "theme": "dark"
 }
