@@ -1,11 +1,13 @@
 #!/bin/sh
 # Run a command in a borderless kitty panel inset 15% from each screen edge.
 # Usage: kp <command> [args...]
+
 read -r w h <<EOF
-$(osascript -e 'tell application "Finder" to get bounds of window of desktop' | awk -F', ' '{print $3, $4}')
+$(system_profiler SPDisplaysDataType | grep Resolution | awk '{print $2, $4}')
 EOF
-x=$((w * 25 / 100))
-y=$((h * 25 / 100))
+# Divide in half because system_profiler returns Retina resolution
+x=$((w / 2 * 25 / 100))
+y=$((h / 2 * 25 / 100))
 kitten="/Applications/kitty.app/Contents/MacOS/kitten"
 
 in=$(mktemp)
